@@ -1,0 +1,46 @@
+
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+  text-align: start;
+
+
+
+}
+.table th{
+    background-color: #ddd;
+    text-align: start;
+    padding: 20px 70px;
+    
+}
+.table td{
+    text-align: start;
+    padding: 20px 70px;
+    border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.details{
+    margin:0 6px;
+    text-align: start;
+    background-color: rgb(26, 115, 150)
+
+}
+.delete{
+    margin:0 6px;
+    text-align: start;
+    background-color: rgb(209, 28, 28);
+}
+.addUserBtn{
+    width: 15%;
+    margin: auto;
+    margin-top: 20%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+    
+
+
