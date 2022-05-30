@@ -1,0 +1,117 @@
+.modalForm {
+    position: absolute;
+    left: 800px;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border: 1px solid gainsboro;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .createNewUser {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+  }
+  
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 85px;
+    padding: 0 15px;
+  }
+  
+  input {
+    min-height: 25px;
+  }
+  
+  .login input::placeholder {
+    padding-left: 5px;
+  }
+  
+  .roleStatus,
+  .passwordContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 75px;
+  }
+  
+  .role,
+  .status,
+  .password,
+  .confirmPassword {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 44%;
+  }
+  
+  .selectHeight {
+    min-height: 25px;
+  }
+  
+  .dataArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 93%;
+    min-height: 110px;
+    border-bottom: 1px solid gainsboro;
+  }
+  
+  .dataArea textarea {
+    min-height: 50px;
+  }
+  
+  .formButtons {
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+    margin: 15px 0 25px 0;
+  }
+  
+  .cancelButton,
+  .saveButton {
+    padding: 7px;
+    min-height: 30px;
+    border: 1px solid gray;
+    border-radius: 4px;
+  }
+  
+  .saveButton {
+    color: white;
+    background-color: green;
+    margin-left: 7px;
+  }
+  
+  .xButton {
+    border: none;
+    background-color: #fff;
+  }
+  
+  .error {
+    color: red;
+    font: 14px;
+  }
+  
+  input {
+    padding-left: 5px;
+  }
+  
+  input:focus {
+    border: 0px;
+    outline: 1px solid skyblue;
+    background-color: rgb(192, 210, 230);
+  }

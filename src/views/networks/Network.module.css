@@ -1,0 +1,85 @@
+.form {
+    position: absolute;
+    left: 800px;
+    top: 200px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .createNewNetwork {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+    width: 100%;
+    border-bottom: 1px solid gainsboro;
+  }
+  
+  .createNewNetwork h3 {
+    padding-left: 10px;
+  }
+  
+  .xButton {
+    border: none;
+    background-color: #fff;
+    padding-right: 10px;
+  }
+  
+  .name {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 95%;
+    min-height: 80px;
+  }
+  
+  .description {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 95%;
+    min-height: 110px;
+    border-bottom: 1px solid gainsboro;
+  }
+  
+  .description textarea {
+    height: 50px;
+  }
+  
+  .buttonArea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;
+    height: 70px;
+  }
+  
+  .cancelButton,
+  .saveButton {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid gray;
+  }
+  
+  .saveButton {
+    color: white;
+    background-color: green;
+    margin-left: 5px;
+  }
+  
+  input {
+    padding-left: 5px;
+  }
+  
+  input:focus {
+    border: 0px;
+    outline: 1px solid skyblue;
+    background-color: rgb(192, 210, 230);
+  }
