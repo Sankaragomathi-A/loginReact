@@ -6,13 +6,16 @@ import Login from "./views/login/Login";
 import Networks from "./views/networks/Networks";
 
 import EditUser from "./views/modal/EditUser";
+import { Navbar } from "react-bootstrap";
 
 
 function App() {
   return (
     <div className="App">
+      
       <BrowserRouter>
         <Routes>
+        
           <Route path="/" element={<Login />}></Route>
 
           <Route path="/user/:id" element={<EditUser />} />

@@ -19,13 +19,11 @@ const CustomModal = (props) => {
   console.log(props.type);
   const id = props.id;
 
-
   const nameInputRef = useRef();
   const roleInputRef = useRef();
   const statusInputRef = useRef();
   const passwordInputRef = useRef();
   const dataInputRef = useRef();
-
 
   const currentUser = user.find((item) => item.id === parseInt(id));
 
@@ -33,10 +31,6 @@ const CustomModal = (props) => {
   // console.log(currentUserId);
 
   console.log(addUser);
-
-  
-
-  
 
   //  useEffect(() => {
   //   if (type === "edit") {
@@ -47,7 +41,6 @@ const CustomModal = (props) => {
   //     dataInputRef.current.value = props.data.data;
   //   }
   // });
-  
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -57,21 +50,18 @@ const CustomModal = (props) => {
     // const enteredStatus = statusInputRef.current.value;
     // const enteredData = dataInputRef.current.value;
 
-
     if (type === "add") {
-      addUser(name,password,role,status,data);
-         }
+      addUser(name, password, role, status, data);
+    }
     if (type === "edit") {
       console.log(props.data.id);
-      updateUser(props.data.id, name,password,role,status,data);
+      updateUser(props.data.id, name, password, role, status, data);
 
       // nameInputRef.current.value = "";
       // roleInputRef.current.value = "";
       // statusInputRef.current.value = "";
       // passwordInputRef.current.value = "";
       // roleInputRef.current.value = "";
-
-
     }
 
     navigate("/home", { replace: true });
@@ -79,7 +69,8 @@ const CustomModal = (props) => {
   };
 
   return (
-    <form className={classes.modalForm} onSubmit={submitHandler} >
+    
+    <form className={classes.modalForm} onSubmit={submitHandler}>
       <div className={classes.createNewUser}>
         {type === "add" && <h3> Create new user</h3>}
         {type === "edit" && <h3>Edit User</h3>}
@@ -93,20 +84,18 @@ const CustomModal = (props) => {
         <input
           type="text"
           placeholder="login"
-         
-          onChange={(e)=>setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           ref={nameInputRef}
         />
       </div>
       <div className={classes.roleStatus}>
         <div className={classes.role}>
           <label>Role</label>
-          <select  onChange={(e)=>setRole(e.target.value)}
+          <select
+            onChange={(e) => setRole(e.target.value)}
             className={classes.selectHeight}
             required
-           
             ref={roleInputRef}
-            
           >
             <option value="Admin">Admin</option>
             <option value="Client" selected="selected">
@@ -116,12 +105,12 @@ const CustomModal = (props) => {
         </div>
         <div className={classes.status}>
           <label>Status</label>
-          <select  onChange={(e)=>setStatus(e.target.value)}
+          <select
+            onChange={(e) => setStatus(e.target.value)}
             className={classes.selectHeight}
             required
-            
             ref={statusInputRef}
-              >
+          >
             <option value="Active" selected="selected">
               Active
             </option>
@@ -130,20 +119,16 @@ const CustomModal = (props) => {
         </div>
       </div>
 
-      <div className={classes.passwordContainer}>
-        <div className={classes.password}>
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={(e)=>setPassword(e.target.value)}
-            
-            ref={passwordInputRef}
-            
-            
-          />
-        </div>
+      <div className={classes.password}>
+        <label>Password</label>
+        <br></br>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+          ref={passwordInputRef}
+        />
       </div>
       <div className={classes.dataArea}>
         <label>Data (json)</label>
@@ -151,9 +136,9 @@ const CustomModal = (props) => {
           type="text"
           className="form-control"
           rows="1"
-          onChange={(e)=>setData(e.target.value)}
-            ref={dataInputRef}
-            />
+          onChange={(e) => setData(e.target.value)}
+          ref={dataInputRef}
+        />
       </div>
       <div className={classes.formButtons}>
         <button className={classes.cancelButton} onClick={closeModal}>
@@ -162,6 +147,7 @@ const CustomModal = (props) => {
         <button className={classes.saveButton}>Save</button>
       </div>
     </form>
+
   );
 };
 

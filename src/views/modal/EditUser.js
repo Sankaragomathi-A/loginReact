@@ -88,7 +88,7 @@ const EditUser = () => {
           />
         </div> */}
 
-<button onClick={showModal} >
+<button className={style.editBtn} onClick={showModal} >
             Edit
           </button>
       </div>

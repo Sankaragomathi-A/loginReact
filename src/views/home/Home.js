@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import Popup from "./Popup";
 import CustomModal from "../modal/Modal";
 import ChangeModal from "../modal/ChangeModal";
+import Navbar from "../navbar/Navbar";
 
 function Home(props) {
   console.log(props);
@@ -50,15 +51,16 @@ function Home(props) {
 
   return (
     <div className={styles.container}>
-      <div>
-        <div>Aequalis</div>
-        <NavLink className={{ padding: "5px" }} to="/home">
-          Users
-        </NavLink>
+      <div className={styles.navbar}>
+        <div className={styles.alignBtn}>Aequalis
+        <NavLink to="/home">Users</NavLink>
         <NavLink to="/home/network">Networks</NavLink>
-        <button style={{ width: "20%" }} onClick={() => navigate("/")}>
+        </div>
+        <div className="">
+        <button className={styles.logoutBtn} onClick={() => navigate("/")}>
           Logout
         </button>
+      </div>
       </div>
 
       <div>
@@ -122,12 +124,9 @@ function Home(props) {
         <button type="button" onClick={showModal}>
           Add New User
         </button>
-        
-        {openModal && ( <CustomModal closeModal={closeModal} type="add" />)}
-        {openEditModal && (
-          <CustomModal closeModal={closeModal} type="edit" />
-        )}
-    
+
+        {openModal && <CustomModal closeModal={closeModal} type="add" />}
+        {openEditModal && <CustomModal closeModal={closeModal} type="edit" />}
       </div>
     </div>
   );

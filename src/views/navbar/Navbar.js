@@ -20,7 +20,7 @@ function Navbar() {
     //   </div>
     // </div>
 
-    <div>
+    <div className="">
       <div>Aequalis</div>
       <NavLink to="/home">Users</NavLink>
       <NavLink to="/home/network">Networks</NavLink>
