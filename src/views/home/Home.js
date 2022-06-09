@@ -51,17 +51,19 @@ function Home(props) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.navbar}>
-        <div className={styles.alignBtn}>Aequalis
-        <NavLink to="/home">Users</NavLink>
-        <NavLink to="/home/network">Networks</NavLink>
-        </div>
-        <div className="">
-        <button className={styles.logoutBtn} onClick={() => navigate("/")}>
+    <div>
+        <div>Aequalis</div>
+        <NavLink className={styles.NavLink} to="/home">
+          Users
+        </NavLink>
+        <NavLink className={styles.NavLink} to="/home/network">
+          Networks
+        </NavLink>
+        <button style={{ width: "20%" }} onClick={() => navigate("/")}>
           Logout
         </button>
       </div>
-      </div>
+      
 
       <div>
         <table className={styles.table}>

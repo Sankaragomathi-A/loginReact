@@ -28,10 +28,9 @@ const EditUser = () => {
   console.log(user, getId);
 
   return (
-    <div className="">
+    <div>
       <div className={style.nav}>
-        <Link to="/home">Users / </Link>
-        {id}
+        <Link to="/home">Users / </Link> {id}
       </div>
 
       <div>

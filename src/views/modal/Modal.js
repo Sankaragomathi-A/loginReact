@@ -32,36 +32,19 @@ const CustomModal = (props) => {
 
   console.log(addUser);
 
-  //  useEffect(() => {
-  //   if (type === "edit") {
-  //     nameInputRef.current.value = props.data.name;
-  //     passwordInputRef.current.value = props.data.password;
-  //     statusInputRef.current.value = props.data.status;
-  //     roleInputRef.current.value = props.data.role;
-  //     dataInputRef.current.value = props.data.data;
-  //   }
-  // });
+ 
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // const enteredName = nameInputRef.current.value;
-    // const enteredPassword = passwordInputRef.current.value;
-    // const enteredRole = roleInputRef.current.value;
-    // const enteredStatus = statusInputRef.current.value;
-    // const enteredData = dataInputRef.current.value;
-
+   
     if (type === "add") {
-      addUser(name, password, role, status, data);
+      addUser(name ,role, status,password, data);
     }
     if (type === "edit") {
       console.log(props.data.id);
-      updateUser(props.data.id, name, password, role, status, data);
+      updateUser(props.data.id, name, role, status, password,data);
 
-      // nameInputRef.current.value = "";
-      // roleInputRef.current.value = "";
-      // statusInputRef.current.value = "";
-      // passwordInputRef.current.value = "";
-      // roleInputRef.current.value = "";
+      
     }
 
     navigate("/home", { replace: true });
@@ -69,7 +52,6 @@ const CustomModal = (props) => {
   };
 
   return (
-    
     <form className={classes.modalForm} onSubmit={submitHandler}>
       <div className={classes.createNewUser}>
         {type === "add" && <h3> Create new user</h3>}
@@ -147,7 +129,6 @@ const CustomModal = (props) => {
         <button className={classes.saveButton}>Save</button>
       </div>
     </form>
-
   );
 };
 

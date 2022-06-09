@@ -2,6 +2,7 @@ import react, { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import classes from '../modal/Modal.module.css'
 function NetWorkModal(props) {
   const closeModal = props.closeModal;
   const { networkData, addNetworkData, updateNetworkData } =
@@ -24,35 +25,11 @@ function NetWorkModal(props) {
 
   const currentNetwork = networkData.find((item) => item.id === parseInt(id));
 
-  useEffect(() => {
-    if (type === "EDIT") {
-      console.log(networkData);
-      console.log(currentNetwork);
+ 
 
-      networkInputRef.current.value = currentNetwork.network;
-      descriptionInputRef.current.value = currentNetwork.description;
-    }
-  });
+  
 
-  const networkChangeHandler = (event) => {
-    event.preventDefault();
-    setNetwork(event.target.value);
-    if (event.target.value === "") {
-      setNetworkError(true);
-    } else {
-      setNetworkError(false);
-    }
-  };
-
-  const descriptionChangeHandler = (event) => {
-    event.preventDefault();
-    setDescription(event.target.value);
-    if (event.target.value === "") {
-      setDescriptionError(true);
-    } else {
-      setDescriptionError(false);
-    }
-  };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,11 +41,10 @@ function NetWorkModal(props) {
     }
     if (type === "EDIT") {
       updateNetworkData(id, network, description);
-      networkInputRef.current.value = "";
-      descriptionInputRef.current.value = "";
+      updateNetworkData(props.data.id,network,description)
     }
     navigate("/home/network", { replace: true });
-
+    closeModal();
     // console.log(e.target.value);
     // addNetworkData(enteredNetwork, enteredDescription);
     // setNetwork("");
@@ -77,93 +53,45 @@ function NetWorkModal(props) {
   };
 
   return (
-    <div>
-      <form>
-        {type === "ADD" && <h3>Create new Network</h3>}
-        {type === "EDIT" && <h3>Edit Network</h3>}
-
-        <button onClick={closeModal}>X</button>
-        <label>Name</label>
-        <input
-          type="text"
-          value={network}
-          onChange={networkChangeHandler}
-          ref={networkInputRef}
-        ></input>
-
-        <br></br>
-
-        <label>Description</label>
-        <input
-          type="text"
-          value={description}
-          ref={descriptionInputRef}
-          onChange={descriptionChangeHandler}
-        ></input>
-
-        <br></br>
-
-        {/* <input
-              style={{ width: "30%" }}
-              type="text"
-              name="name"
-              onChange={(e) => setRole(e.target.value)}
-            ></input> */}
-        <br></br>
-
-        {/* <input
-              style={{ width: "30%" }}
-              type="text"
-              onChange={(e) => setStatus(e.target.value)}
-            ></input> */}
-
-        <button onClick={handleSubmit}>Save</button>
-      </form>
+    <form className={classes.modalForm} onSubmit={handleSubmit}>
+    <div className={classes.createNewUser}>
+      {type === "ADD" && <h3> Create new user</h3>}
+      {type === "EDIT" && <h3>Edit User</h3>}
+      <button className={classes.xButton} onClick={closeModal}>
+        X
+      </button>
     </div>
-  );
-}
-export default NetWorkModal;
 
-{
-  /* <form>
-        <label>Login</label>
-        <input
-          style={{ width: "30%" }}
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        <br></br>
-        <label>password</label>
-        <input
-          style={{ width: "30%" }}
-          type="text"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <br></br>
-        <label>role</label>
-        <input
-          style={{ width: "30%" }}
-          type="text"
-          name="name"
-          onChange={(e) => setRole(e.target.value)}
-        ></input>
-        <br></br>
-        <label>status</label>
-        <input
-          style={{ width: "30%" }}
-          type="text"
-          onChange={(e) => setStatus(e.target.value)}
-        ></input>
-        <br></br>
-        <label>data</label>
-        <input
-          style={{ width: "30%" }}
-          type="text"
-          onChange={(e) => setDataJson(e.target.value)}
-        ></input>
-        <br></br>
-
-        <button onClick={handleSubmit}>Save</button>
-      </form>
-    </div> */
+    <div className={classes.login}>
+      <label>Name</label>
+      <input
+        type="text"
+        placeholder="login"
+        onChange={(e) => setNetwork(e.target.value)}
+        ref={networkInputRef}
+      />
+    </div>
+   
+         
+    <div className={classes.password}>
+      <label>Password</label>
+      <br></br>
+      <input
+        type="text"
+        name="description"
+        placeholder="password"
+        onChange={(e) => setDescription(e.target.value)}
+        ref={descriptionInputRef}
+      />
+    </div>
+   
+    <div className={classes.formButtons}>
+      <button className={classes.cancelButton} onClick={closeModal}>
+        Cancel
+      </button>
+      <button className={classes.saveButton}>Save</button>
+    </div>
+  </form>
+  )
 }
+export default NetWorkModal
